@@ -1,0 +1,32 @@
+### macOS ###
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# PyCharm
+.idea/
+
+# PyCharm project settings
+.idea
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+### Python Patch ###
+.venv/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
