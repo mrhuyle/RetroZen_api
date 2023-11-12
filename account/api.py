@@ -10,7 +10,6 @@ from .forms import SignupForm
 @permission_classes([])
 def signup(request):
     data = request.data
-    message = 'success'
 
     form = SignupForm({
         'email': data.get('email'),
@@ -19,11 +18,14 @@ def signup(request):
         'password2': data.get('password2'),
     })
 
+    print(form.errors)
+
     if form.is_valid():
         form.save()
-
-    #     Send verification email later!
+        message = 'success'
+        return JsonResponse({'message': message})
     else:
         message = 'error'
-
-    return JsonResponse({'status': message})
+        print(message)
+        # Return a JsonResponse with a 4xx status code
+        return JsonResponse({'message': message, 'errors': form.errors}, status=400)
